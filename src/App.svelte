@@ -1,6 +1,8 @@
 <script>
   import MarvelMovies from "./MarvelMovies.js";
   import Movie from "./Movie.svelte";
+  import Header from "./Header.svelte";
+  import Footer from "./Footer.svelte";
 
   let index = 0;
 
@@ -17,23 +19,22 @@
 </script>
 
 <style>
-  h1 {
-    color: purple;
+  .grid-container {
+    display: grid;
+    grid-template-columns: 0.1fr 2.9fr 0.1fr;
+    grid-template-rows: 0.1fr 2.8fr 0.1fr;
+    grid-template-areas: "h1 h2 h3" "b1 b2 b3" "f1 f2 f3";
   }
 </style>
 
-<h1>Marvel Movie Timeline</h1>
+<div class="grid-container">
+  <Header />
 
-<button on:click={prevMovie}>👈</button>
+  <button on:click={prevMovie} style="grid-area:b1">👈</button>
 
-<Movie {...MarvelMovies[index]} />
+  <Movie {...MarvelMovies[index]} />
 
-<button on:click={nextMovie}>👉</button>
+  <button on:click={nextMovie} style="grid-area:b3">👉</button>
 
-<p>
-  Details borrowed from
-  <a
-    href="https://www.amctheatres.com/amc-scene/the-best-way-to-rewatch-the-mcu">
-    AMC Theaters
-  </a>
-</p>
+  <Footer />
+</div>

@@ -25,6 +25,10 @@
     grid-template-rows: 0.1fr 2.8fr 0.1fr;
     grid-template-areas: "h1 h2 h3" "b1 b2 b3" "f1 f2 f3";
   }
+
+  button {
+    cursor: pointer;
+  }
 </style>
 
 <div class="grid-container">
